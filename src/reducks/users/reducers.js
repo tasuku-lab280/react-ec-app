@@ -7,6 +7,7 @@ export const usersReducer = (state = initialState.users, action) => {
       return {
         // スプレッド構文は配列やオブジェクトを展開する、マージされる
         ...state,
+        ...action.payload,
       };
     case Actions.SIGN_OUT:
       return {
