@@ -1,16 +1,25 @@
 import * as Actions from "./actions";
 import initialState from "../store/initialState";
 
-export const usersReducer = (state = initialState.users, action) => {
+export const chatMessagesReducer = (
+  state = initialState.chat_messages,
+  action
+) => {
   switch (action.type) {
-    case Actions.SIGN_IN:
+    case Actions.GET_CHAT_MESSAGES_REQUEST:
       return {
         // スプレッド構文は配列やオブジェクトを展開する、マージされる
         ...state,
+        payload: [],
       };
-    case Actions.SIGN_OUT:
+    case Actions.GET_CHAT_MESSAGES_SUCCESS:
       return {
+        ...state,
         ...action.payload,
+      };
+    case Actions.GET_CHAT_MESSAGES_FAILURE:
+      return {
+        error: action.error,
       };
     default:
       return state;

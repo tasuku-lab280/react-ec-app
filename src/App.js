@@ -6,10 +6,9 @@ import Header from "./components/Header";
 
 const App = () => {
   return (
-    <main>
-      <Header />
+    <Header>
       <Router />
-    </main>
+    </Header>
   );
 };
 

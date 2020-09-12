@@ -1,16 +1,18 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { fetchChatMessages } from "../reducks/chat_messages/operations";
 import { Scrollbars } from "react-custom-scrollbars";
 import { TextInput } from "../components/UIkit";
 import Button from "@material-ui/core/Button";
 
 const Chat = () => {
-  const messages = [
-    { user_id: 1, content: "メッセージ1" },
-    { user_id: 2, content: "メッセージ2" },
-    { user_id: 3, content: "メッセージ3" },
-    { user_id: 3, content: "メッセージ3" },
-    { user_id: 3, content: "メッセージ3" },
-  ];
+  const dispatch = useDispatch();
+
+  const [messages, setMessages] = useState([]);
+  useEffect(() => {
+    setMessages(() => dispatch(fetchChatMessages()));
+  }, []);
+
   return (
     <div className="flex">
       <div className="chat-rooms-menu">

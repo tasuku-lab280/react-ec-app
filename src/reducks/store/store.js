@@ -9,6 +9,7 @@ import thunk from "redux-thunk";
 // import reducers
 import { usersReducer } from "../users/reducers";
 import { productsReducer } from "../products/reducers";
+import { chatMessagesReducer } from "../chat_messages/reducers";
 
 // historyはパスの情報もつ
 export default function createStore(history) {
@@ -17,6 +18,7 @@ export default function createStore(history) {
       router: connectRouter(history),
       users: usersReducer,
       products: productsReducer,
+      chat_messages: chatMessagesReducer,
     }),
     applyMiddleware(routerMiddleware(history), thunk)
   );
