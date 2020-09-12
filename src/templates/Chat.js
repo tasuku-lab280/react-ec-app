@@ -9,6 +9,7 @@ const Chat = () => {
   const dispatch = useDispatch();
 
   const [messages, setMessages] = useState([]);
+  console.log(messages);
   useEffect(() => {
     setMessages(() => dispatch(fetchChatMessages()));
   }, []);
