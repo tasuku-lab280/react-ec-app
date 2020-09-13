@@ -10,7 +10,7 @@ const initialState = {
     list: [],
   },
   chat_messages: {
-    messages: [],
+    list: [],
   },
 };
 

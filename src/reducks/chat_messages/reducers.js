@@ -6,10 +6,10 @@ export const chatMessagesReducer = (
   action
 ) => {
   switch (action.type) {
-    case Actions.GET_CHAT_MESSAGES_SUCCESS:
+    case Actions.FETCH_CHAT_MESSAGES:
       return {
         ...state,
-        ...action.payload,
+        list: [...action.payload],
       };
     default:
       return state;
