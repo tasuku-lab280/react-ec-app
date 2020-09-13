@@ -25,6 +25,10 @@ const Chat = () => {
     [setContent]
   );
 
+  const createMessage = () => {
+    dispatch(createChatMessages(chat_room_id, user_id, content));
+  };
+
   useEffect(() => {
     dispatch(fetchChatMessages());
   }, []);
@@ -60,13 +64,7 @@ const Chat = () => {
           type={"text"}
           onChange={inputContent}
         />
-        <Button
-          onClick={() =>
-            dispatch(createChatMessages(chat_room_id, user_id, content))
-          }
-        >
-          送信
-        </Button>
+        <Button onClick={() => createMessage()}>送信</Button>
       </div>
     </div>
   );
