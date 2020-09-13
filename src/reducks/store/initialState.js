@@ -9,6 +9,9 @@ const initialState = {
   products: {
     list: [],
   },
+  chat_messages: {
+    list: [],
+  },
 };
 
 export default initialState;
