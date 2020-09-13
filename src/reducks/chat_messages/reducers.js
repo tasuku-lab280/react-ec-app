@@ -11,6 +11,10 @@ export const chatMessagesReducer = (
         ...state,
         list: [...action.payload],
       };
+    case Actions.CREATE_CHAT_MESSAGES:
+      return {
+        list: [...state, action.payload],
+      };
     default:
       return state;
   }

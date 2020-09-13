@@ -5,7 +5,7 @@ import { TextInput } from "../components/UIkit";
 import Button from "@material-ui/core/Button";
 
 import { fetchChatMessages } from "../reducks/chat_messages/operations";
-// import { createChatMessages } from "../reducks/chat_messages/operations";
+import { createChatMessages } from "../reducks/chat_messages/operations";
 import { getChatMessages } from "../reducks/chat_messages/selectors";
 import { ChatMessageItem, ChatRoomItem } from "../components/chat_messages";
 
@@ -13,6 +13,10 @@ const Chat = () => {
   const dispatch = useDispatch();
   const selector = useSelector((state) => state);
   const messages = getChatMessages(selector);
+
+  const chat_room_id = 1;
+  const user_id = 1;
+  const content = "新規メッセージです新規メッセージです";
 
   useEffect(() => {
     dispatch(fetchChatMessages());
@@ -50,15 +54,9 @@ const Chat = () => {
           // onChange={inputPassword}
         />
         <Button
-        // onClick={() =>
-        //   dispatch(
-        //     createChatMessages({
-        //       user_id: 1,
-        //       user_name: "会員1",
-        //       content: "新規メッセージ",
-        //     })
-        //   )
-        // }
+          onClick={() =>
+            dispatch(createChatMessages(chat_room_id, user_id, content))
+          }
         >
           送信
         </Button>

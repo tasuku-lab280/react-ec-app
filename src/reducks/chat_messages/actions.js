@@ -5,3 +5,11 @@ export const fetchChatMessagesAction = (chat_messages) => {
     payload: chat_messages,
   };
 };
+
+export const CREATE_CHAT_MESSAGES = "CREATE_CHAT_MESSAGES";
+export const createChatMessagesAction = (chat_messages) => {
+  return {
+    type: CREATE_CHAT_MESSAGES,
+    payload: chat_messages,
+  };
+};
