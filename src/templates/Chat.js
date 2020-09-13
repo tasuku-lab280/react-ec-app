@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Scrollbars } from "react-custom-scrollbars";
 import { TextInput } from "../components/UIkit";
@@ -16,7 +16,14 @@ const Chat = () => {
 
   const chat_room_id = 1;
   const user_id = 1;
-  const content = "新規メッセージです新規メッセージです";
+  const [content, setContent] = useState("");
+
+  const inputContent = useCallback(
+    (event) => {
+      setContent(event.target.value);
+    },
+    [setContent]
+  );
 
   useEffect(() => {
     dispatch(fetchChatMessages());
@@ -51,7 +58,7 @@ const Chat = () => {
           rows={5}
           // value={content}
           type={"text"}
-          // onChange={inputPassword}
+          onChange={inputContent}
         />
         <Button
           onClick={() =>
