@@ -1,10 +1,12 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchChatMessages } from "../reducks/chat_messages/operations";
-import { getChatMessages } from "../reducks/chat_messages/selectors";
 import { Scrollbars } from "react-custom-scrollbars";
 import { TextInput } from "../components/UIkit";
 import Button from "@material-ui/core/Button";
+
+import { fetchChatMessages } from "../reducks/chat_messages/operations";
+// import { createChatMessages } from "../reducks/chat_messages/operations";
+import { getChatMessages } from "../reducks/chat_messages/selectors";
 import { ChatMessageItem, ChatRoomItem } from "../components/chat_messages";
 
 const Chat = () => {
@@ -47,7 +49,19 @@ const Chat = () => {
           type={"text"}
           // onChange={inputPassword}
         />
-        <Button onClick={() => dispatch(fetchChatMessages())}>送信</Button>
+        <Button
+        // onClick={() =>
+        //   dispatch(
+        //     createChatMessages({
+        //       user_id: 1,
+        //       user_name: "会員1",
+        //       content: "新規メッセージ",
+        //     })
+        //   )
+        // }
+        >
+          送信
+        </Button>
       </div>
     </div>
   );
