@@ -6,10 +6,18 @@ export const fetchChatMessagesAction = (chat_messages) => {
   };
 };
 
-export const CREATE_CHAT_MESSAGES = "CREATE_CHAT_MESSAGES";
-export const createChatMessagesAction = (chat_messages) => {
+export const CREATE_CHAT_MESSAGE = "CREATE_CHAT_MESSAGE";
+export const createChatMessageAction = (chat_message) => {
   return {
-    type: CREATE_CHAT_MESSAGES,
-    payload: chat_messages,
+    type: CREATE_CHAT_MESSAGE,
+    payload: chat_message,
+  };
+};
+
+export const DELETE_CHAT_MESSAGE = "DELETE_CHAT_MESSAGE";
+export const deleteChatMessageAction = (chat_message) => {
+  return {
+    type: DELETE_CHAT_MESSAGE,
+    payload: chat_message,
   };
 };

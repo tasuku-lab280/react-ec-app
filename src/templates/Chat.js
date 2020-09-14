@@ -5,7 +5,7 @@ import { TextInput } from "../components/UIkit";
 import Button from "@material-ui/core/Button";
 
 import { fetchChatMessages } from "../reducks/chat_messages/operations";
-import { createChatMessages } from "../reducks/chat_messages/operations";
+import { createChatMessage } from "../reducks/chat_messages/operations";
 import { getChatMessages } from "../reducks/chat_messages/selectors";
 import { ChatMessageItem, ChatRoomItem } from "../components/chat_messages";
 
@@ -30,13 +30,13 @@ const Chat = () => {
   };
 
   const createMessage = () => {
-    dispatch(createChatMessages(chat_room_id, user_id, content));
+    dispatch(createChatMessage(chat_room_id, user_id, content));
     resetInputField();
   };
 
   useEffect(() => {
     dispatch(fetchChatMessages());
-  }, [messages]);
+  }, []);
 
   useEffect(() => {
     const scrollArea = document.getElementById("scroll-area");
@@ -60,6 +60,7 @@ const Chat = () => {
             messages.map((message) => (
               <ChatMessageItem
                 key={message.id}
+                id={message.id}
                 user_id={message.user_id}
                 user_name={message.user_name}
                 content={message.content}
