@@ -9,11 +9,12 @@ export const chatMessagesReducer = (
     case Actions.FETCH_CHAT_MESSAGES:
       return {
         ...state,
-        list: [...action.payload],
+        list: action.payload,
       };
     case Actions.CREATE_CHAT_MESSAGES:
       return {
-        list: [...state, action.payload],
+        ...state,
+        list: action.payload,
       };
     default:
       return state;

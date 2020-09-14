@@ -25,13 +25,25 @@ const Chat = () => {
     [setContent]
   );
 
+  const resetInputField = () => {
+    setContent("");
+  };
+
   const createMessage = () => {
     dispatch(createChatMessages(chat_room_id, user_id, content));
+    resetInputField();
   };
 
   useEffect(() => {
     dispatch(fetchChatMessages());
-  }, []);
+  }, [messages]);
+
+  useEffect(() => {
+    const scrollArea = document.getElementById("scroll-area");
+    if (scrollArea) {
+      scrollArea.scrollTop = scrollArea.scrollHeight;
+    }
+  });
 
   return (
     <div className="flex">
@@ -43,7 +55,7 @@ const Chat = () => {
         </Scrollbars>
       </div>
       <div className="chat-message-container">
-        <Scrollbars>
+        <Scrollbars id={"scroll-area"}>
           {messages.length > 0 &&
             messages.map((message) => (
               <ChatMessageItem
