@@ -1,10 +1,6 @@
 import React from "react";
-import { useDispatch } from "react-redux";
-import { deleteChatMessage } from "../../reducks/chat_messages/operations";
 
 const ChatMessageItem = (props) => {
-  const dispatch = useDispatch();
-
   return (
     <div
       className={
@@ -22,7 +18,7 @@ const ChatMessageItem = (props) => {
       </div>
       <button
         className="delete-btn"
-        onClick={() => dispatch(deleteChatMessage(props.id))}
+        onClick={() => props.deleteChatMessage(props.id, props.index)}
       >
         削除
       </button>
