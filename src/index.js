@@ -1,11 +1,14 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { Provider } from "react-redux";
-import createStore from "./reducks/store/store";
 import { ConnectedRouter } from "connected-react-router";
 import * as History from "history";
-import App from "./App";
 import * as serviceWorker from "./serviceWorker";
+import DayjsUtils from "@date-io/dayjs";
+import { MuiPickersUtilsProvider } from "@material-ui/pickers";
+
+import App from "./App";
+import createStore from "./reducks/store/store";
 
 const history = History.createBrowserHistory();
 export const store = createStore(history);
@@ -13,9 +16,11 @@ console.log(store.getState());
 
 ReactDOM.render(
   <Provider store={store}>
-    <ConnectedRouter history={history}>
-      <App />
-    </ConnectedRouter>
+    <MuiPickersUtilsProvider utils={DayjsUtils}>
+      <ConnectedRouter history={history}>
+        <App />
+      </ConnectedRouter>
+    </MuiPickersUtilsProvider>
   </Provider>,
   document.getElementById("root")
 );
