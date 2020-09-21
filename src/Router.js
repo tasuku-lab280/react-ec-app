@@ -22,7 +22,7 @@ const Router = () => {
         <Route exact path="(/)?" component={Home} />
         <Route exact path="/product/edit" component={ProductEdit} />
         <Route exact path="/chat" component={Chat} />
-        <Route exact path="/calender" component={CalendarBoard} />
+        <Route exact path="/calendar" component={CalendarBoard} />
       </Auth>
     </Switch>
   );
