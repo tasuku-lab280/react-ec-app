@@ -7,13 +7,14 @@ import { createCalendar } from "../lib/calendar";
 import CalendarElement from "../components/calendars/CalendarElement";
 import { getCalendar } from "../reducks/calendars/selectors";
 
-const calendar = createCalendar();
 const days = ["日", "月", "火", "水", "木", "金", "土"];
 
-const CalendarBoard = () => {
+const Calendar = () => {
   const selector = useSelector((state) => state);
-  const calendars = getCalendar(selector);
-  console.log(calendars);
+  const calendarState = getCalendar(selector);
+  console.log(calendarState);
+
+  const calendar = createCalendar(calendarState);
 
   return (
     <>
@@ -44,4 +45,4 @@ const CalendarBoard = () => {
   );
 };
 
-export default CalendarBoard;
+export default Calendar;

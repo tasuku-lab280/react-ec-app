@@ -16,8 +16,8 @@ const initialState = {
     list: [],
   },
   calendars: {
-    year: day.year(),
     month: day.month() + 1,
+    year: day.year(),
   },
 };
 

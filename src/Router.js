@@ -7,7 +7,7 @@ import {
   SignIn,
   Reset,
   Chat,
-  CalendarBoard,
+  Calendar,
 } from "./templates";
 import Auth from "./Auth";
 
@@ -22,7 +22,7 @@ const Router = () => {
         <Route exact path="(/)?" component={Home} />
         <Route exact path="/product/edit" component={ProductEdit} />
         <Route exact path="/chat" component={Chat} />
-        <Route exact path="/calendar" component={CalendarBoard} />
+        <Route exact path="/calendar" component={Calendar} />
       </Auth>
     </Switch>
   );
