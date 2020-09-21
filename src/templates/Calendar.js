@@ -3,18 +3,21 @@ import { useSelector } from "react-redux";
 import { GridList, Typography } from "@material-ui/core";
 
 import Navigation from "../components/Navigation";
-import { createCalendar } from "../lib/calendar";
 import CalendarElement from "../components/calendars/CalendarElement";
+import { createCalendar } from "../lib/calendar";
 import { getCalendar } from "../reducks/calendars/selectors";
 
 const days = ["日", "月", "火", "水", "木", "金", "土"];
 
 const Calendar = () => {
+  // selector
   const selector = useSelector((state) => state);
   const calendarState = getCalendar(selector);
   console.log(calendarState);
 
+  // カレンダーUIを作成
   const calendar = createCalendar(calendarState);
+  const month = calendarState;
 
   return (
     <>
@@ -36,7 +39,7 @@ const Calendar = () => {
           ))}
           {calendar.map((c) => (
             <li key={c.toISOString()}>
-              <CalendarElement day={c} />
+              <CalendarElement day={c} month={month} />
             </li>
           ))}
         </GridList>
