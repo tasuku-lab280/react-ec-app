@@ -247,3 +247,33 @@
   font-size: 0.8rem;
   word-wrap: break-word;
 }
+
+/*********** chat ***********/
+.container {
+  height: 90vh;
+}
+.grid {
+  border-left: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+}
+.days {
+  border-right: 1px solid #ccc;
+  padding-top: 10px;
+}
+.element {
+  border-right: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+  height: 17vh;
+}
+.date {
+  padding: 5px 0;
+  height: 24px;
+}
+.today {
+  display: inline-block;
+  line-height: 24px;
+  width: 24px;
+  background-color: #1a73e8;
+  color: #fff;
+  border-radius: 50%;
+}

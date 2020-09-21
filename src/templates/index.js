@@ -4,3 +4,4 @@ export { default as Reset } from "./Reset";
 export { default as SignUp } from "./SignUp";
 export { default as SignIn } from "./SignIn";
 export { default as Chat } from "./Chat";
+export { default as CalendarBoard } from "./CalendarBoard";
