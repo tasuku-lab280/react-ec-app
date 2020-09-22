@@ -11,7 +11,7 @@ import { createCalendar } from "../lib/calendar";
 import {
   addScheduleSetDate,
   addScheduleOpenDialog,
-} from "../reducks/schedules/actions";
+} from "../reducks/add_schedules/actions";
 import { getCalendar } from "../reducks/calendars/selectors";
 
 const days = ["日", "月", "火", "水", "木", "金", "土"];

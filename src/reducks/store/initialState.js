@@ -19,7 +19,7 @@ const initialState = {
     month: day.month() + 1,
     year: day.year(),
   },
-  schedules: {
+  add_schedules: {
     form: {
       title: "",
       description: "",

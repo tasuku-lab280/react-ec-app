@@ -25,14 +25,14 @@ import {
   addScheduleSetDescription,
   addScheduleSetLocation,
   addScheduleCloseDialog,
-} from "../../reducks/schedules/actions";
+} from "../../reducks/add_schedules/actions";
 import {
   getScheduleIsDialogOpen,
   getScheduleTitle,
   getScheduleDate,
   getScheduleDescription,
   getScheduleLocation,
-} from "../../reducks/schedules/selectors";
+} from "../../reducks/add_schedules/selectors";
 
 const spacer = { margin: "4px 0" };
 
@@ -49,11 +49,11 @@ const ScheduleDialog = () => {
   const date = getScheduleDate(selector);
   const description = getScheduleDescription(selector);
   const location = getScheduleLocation(selector);
-  console.log(isDialogOpen);
-  console.log(title);
-  console.log(date);
-  console.log(description);
-  console.log(location);
+  console.log(`ダイアログ ${isDialogOpen}`);
+  console.log(`タイトル ${title}`);
+  console.log(`日付 ${date}`);
+  console.log(`説明 ${description}`);
+  console.log(`場所 ${location}`);
 
   return (
     <Dialog
