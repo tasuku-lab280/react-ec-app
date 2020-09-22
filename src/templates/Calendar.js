@@ -8,7 +8,10 @@ import {
   ScheduleDialog,
 } from "../components/calendars/index";
 import { createCalendar } from "../lib/calendar";
-import { addScheduleOpenDialog } from "../reducks/schedules/actions";
+import {
+  addScheduleSetDate,
+  addScheduleOpenDialog,
+} from "../reducks/schedules/actions";
 import { getCalendar } from "../reducks/calendars/selectors";
 
 const days = ["日", "月", "火", "水", "木", "金", "土"];
@@ -22,6 +25,11 @@ const Calendar = () => {
   // カレンダーUIを作成
   const calendar = createCalendar(calendarState);
   const month = calendarState;
+
+  const openAddScheduleDialog = (d) => {
+    dispatch(addScheduleOpenDialog());
+    dispatch(addScheduleSetDate({ date: d }));
+  };
 
   return (
     <>
@@ -42,10 +50,7 @@ const Calendar = () => {
             </li>
           ))}
           {calendar.map((c) => (
-            <li
-              key={c.toISOString()}
-              onClick={() => dispatch(addScheduleOpenDialog())}
-            >
+            <li key={c.toISOString()} onClick={() => openAddScheduleDialog(c)}>
               <CalendarElement day={c} month={month} />
             </li>
           ))}
