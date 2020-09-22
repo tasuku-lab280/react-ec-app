@@ -11,6 +11,7 @@ import { usersReducer } from "../users/reducers";
 import { productsReducer } from "../products/reducers";
 import { chatMessagesReducer } from "../chat_messages/reducers";
 import { calendarsReducer } from "../calendars/reducers";
+import { schedulesReducer } from "../schedules/reducers";
 
 // historyはパスの情報もつ
 export default function createStore(history) {
@@ -21,6 +22,7 @@ export default function createStore(history) {
       products: productsReducer,
       chat_messages: chatMessagesReducer,
       calendars: calendarsReducer,
+      schedules: schedulesReducer,
     }),
     applyMiddleware(routerMiddleware(history), thunk)
   );

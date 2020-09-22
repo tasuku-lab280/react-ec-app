@@ -19,6 +19,15 @@ const initialState = {
     month: day.month() + 1,
     year: day.year(),
   },
+  schedules: {
+    form: {
+      title: "",
+      description: "",
+      date: null,
+      location: "",
+    },
+    isDialogOpen: false,
+  },
 };
 
 export default initialState;

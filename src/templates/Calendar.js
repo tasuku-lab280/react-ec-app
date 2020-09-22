@@ -1,16 +1,21 @@
 import React from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { GridList, Typography } from "@material-ui/core";
 
-import Navigation from "../components/calendars/Navigation";
-import CalendarElement from "../components/calendars/CalendarElement";
+import {
+  CalendarElement,
+  Navigation,
+  ScheduleDialog,
+} from "../components/calendars/index";
 import { createCalendar } from "../lib/calendar";
+import { addScheduleOpenDialog } from "../reducks/schedules/actions";
 import { getCalendar } from "../reducks/calendars/selectors";
 
 const days = ["日", "月", "火", "水", "木", "金", "土"];
 
 const Calendar = () => {
-  // selector
+  // redux hooks
+  const dispatch = useDispatch();
   const selector = useSelector((state) => state);
   const calendarState = getCalendar(selector);
 
@@ -37,12 +42,16 @@ const Calendar = () => {
             </li>
           ))}
           {calendar.map((c) => (
-            <li key={c.toISOString()}>
+            <li
+              key={c.toISOString()}
+              onClick={() => dispatch(addScheduleOpenDialog())}
+            >
               <CalendarElement day={c} month={month} />
             </li>
           ))}
         </GridList>
       </div>
+      <ScheduleDialog />
     </>
   );
 };
