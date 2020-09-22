@@ -248,7 +248,7 @@
   word-wrap: break-word;
 }
 
-/*********** chat ***********/
+/*********** calendar ***********/
 .container {
   height: 90vh;
 }
@@ -276,4 +276,9 @@
   background-color: #1a73e8;
   color: #fff;
   border-radius: 50%;
+}
+
+/*********** dialog ***********/
+.closeButton {
+  text-align: right;
 }

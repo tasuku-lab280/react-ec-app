@@ -23,7 +23,7 @@ const initialState = {
     form: {
       title: "",
       description: "",
-      date: null,
+      date: dayjs(),
       location: "",
     },
     isDialogOpen: false,
